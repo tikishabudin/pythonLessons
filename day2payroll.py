@@ -11,6 +11,8 @@ basic = 15
 reghours = 40
 gross,tax,nett = 0,0,0
 
+vals = (1.5,0.18,15,40,0,0,0)
+
 if(hours > reghours):
     gross = ((hours - reghours) * otrate * basic) + (reghours * basic)
 else:
