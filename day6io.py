@@ -34,10 +34,10 @@ print("-"*20)
 # fileObj.write('The quick brown fox jumps over the lazy dog\n')
 # fileObj.close()
 
-fileObj = open('sample.tikiisthecoolest','r')
+# fileObj = open('sample.tikiisthecoolest','r')
 # print(f"Retrieved from file: {fileObj.read()}")
-print(fileObj.readlines())
-fileObj.close()
+# print(fileObj.readlines())
+# fileObj.close()
 
 with open('data.sample','w') as thefile:
     thefile.write("Some sample data")
@@ -45,9 +45,18 @@ with open('data.sample','w') as thefile:
 # if thefile.closed():
 #     print("closed")
 
-# import json
-# person = {'name':'Whatever'}
+import json
+person = {'name':'Whatever'}
+personFile = 'personData.json'
 
-# # with open('person.data','r+') as datafile:
-# #     # datafile.write(json.dumps(person))
-# print(json.loads(fp='person.data'))
+personString = json.dumps(person)
+# json.dump(person,file)
+
+# with open(personFile,'w') as fileWriter:
+#     fileWriter.write(personString)
+
+with open(personFile,'r') as fileReader:
+    result = json.loads(fileReader.readline())
+    print(result['name'])
+
+# result = json.load(file)
