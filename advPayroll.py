@@ -17,7 +17,15 @@ quit = False
 userInput = None
 
 while(quit != True):
-    hours = float(input("Enter hours worked:"))
+    while True:
+        try:
+            hours = float(input("Enter hours worked:"))
+            if hours < 0:
+                raise ValueError
+            break
+        except:
+            print("Invalid entry. Must be a positive number")
+    
     if(hours > reghours):
         gross = ((hours - reghours) * otrate * basic) + (reghours * basic)
     else:
